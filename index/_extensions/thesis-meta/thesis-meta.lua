@@ -138,10 +138,18 @@ function Pandoc(doc)
 
   local meta = stored_meta or doc.meta
 
-  -- Build front matter content in correct Reed College order
+  -- Build front matter content in correct Reed College order:
+  -- 1. Acknowledgements
+  -- 2. Preface
+  -- 3. List of Abbreviations (optional)
+  -- 4. Table of Contents
+  -- 5. List of Tables (optional)
+  -- 6. List of Figures (optional)
+  -- 7. Abstract
+  -- 8. Dedication
   local frontmatter = {}
 
-  -- Acknowledgements
+  -- 1. Acknowledgements
   local acknowledgements = get_string(meta, "thesis-acknowledgements")
   if acknowledgements then
     table.insert(frontmatter, "\\begin{acknowledgements}")
@@ -150,7 +158,7 @@ function Pandoc(doc)
     table.insert(frontmatter, "")
   end
 
-  -- Preface
+  -- 2. Preface
   local preface = get_string(meta, "thesis-preface")
   if preface then
     table.insert(frontmatter, "\\begin{preface}")
@@ -159,25 +167,34 @@ function Pandoc(doc)
     table.insert(frontmatter, "")
   end
 
-  -- Table of Contents (always included for thesis)
+  -- 3. List of Abbreviations (optional, uses raw LaTeX content)
+  local abbreviations = get_string(meta, "thesis-abbreviations")
+  if abbreviations then
+    table.insert(frontmatter, "\\chapter*{List of Abbreviations}")
+    table.insert(frontmatter, abbreviations)
+    table.insert(frontmatter, "\\clearpage")
+    table.insert(frontmatter, "")
+  end
+
+  -- 4. Table of Contents (always included for thesis)
   table.insert(frontmatter, "\\tableofcontents")
   table.insert(frontmatter, "")
 
-  -- List of Tables
-  local lot = get_bool(meta, "lot")
+  -- 5. List of Tables
+  local lot = get_bool(meta, "thesis-lot")
   if lot then
     table.insert(frontmatter, "\\listoftables")
     table.insert(frontmatter, "")
   end
 
-  -- List of Figures
-  local lof = get_bool(meta, "lof")
+  -- 6. List of Figures
+  local lof = get_bool(meta, "thesis-lof")
   if lof then
     table.insert(frontmatter, "\\listoffigures")
     table.insert(frontmatter, "")
   end
 
-  -- Abstract
+  -- 7. Abstract
   local abstract = get_string(meta, "thesis-abstract")
   if abstract then
     table.insert(frontmatter, "\\begin{abstract}")
@@ -186,7 +203,7 @@ function Pandoc(doc)
     table.insert(frontmatter, "")
   end
 
-  -- Dedication
+  -- 8. Dedication
   local dedication = get_string(meta, "thesis-dedication")
   if dedication then
     table.insert(frontmatter, "\\begin{dedication}")

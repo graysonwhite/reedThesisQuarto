@@ -319,6 +319,10 @@ This is an example of a thesis setup to use the Reed thesis document class (for 
 
 \tableofcontents
 
+\listoftables
+
+\listoffigures
+
 \begin{abstract}
 This is your abstract text. You can write it here directly. It can span multiple paragraphs.
 \end{abstract}
@@ -847,6 +851,63 @@ read the proceeding chapter on graphics and tables.
 \chapter{Tables, Graphics, References, and Labels}\label{ref-labels}
 
 \section{Tables}\label{tables}
+
+In addition to the tables that can be automatically generated from a
+data frame in \textbf{R} that you saw in \hyperref[rmd-basics]{R
+Markdown Basics} using the \texttt{kable} function, you can also create
+tables using \emph{pandoc}. (More information is available at
+\url{http://pandoc.org/README.html\#tables}.) This might be useful if
+you don't have values specifically stored in \textbf{R}, but you'd like
+to display them in table form. Below is an example. Pay careful
+attention to the alignment in the table and hyphens to create the rows
+and columns.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3133}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.5060}}
+  >{\centering\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1807}}@{}}
+\caption{(\#tab:inher) Correlation of Inheritance Factors for Parents
+and Child}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Factors
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Correlation between Parents \& Child
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Inherited
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+Factors
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Correlation between Parents \& Child
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+Inherited
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Education & -0.49 & Yes \\
+Socio-Economic Status & 0.28 & Slight \\
+Income & 0.08 & No \\
+Family Size & 0.18 & Slight \\
+Occupational Prestige & 0.21 & Slight \\
+\end{longtable}
+
+We can also create a link to the table by doing the following: Table
+@ref(tab:inher). If you go back to
+\hyperref[loading-and-exploring-data]{Loading and exploring data} and
+look at the \texttt{kable} table, we can create a reference to this max
+delays table too: Table @ref(tab:maxdelays). The addition of the
+\texttt{(\textbackslash{}\#tab:inher)} option to the end of the table
+caption allows us to then make a reference to Table
+\texttt{\textbackslash{}@ref(tab:label)}. Note that this reference could
+appear anywhere throughout the document after the table has appeared.
+
+We will next explore ways to create this label-ref link using figures.
 
 \clearpage
 

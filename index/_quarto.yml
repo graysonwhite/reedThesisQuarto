@@ -25,9 +25,9 @@ advisor: "Advisor F. Name"
 # altadvisor: "Your Other Advisor"  # Uncomment if you have a second advisor
 degree: "Bachelor of Arts"
 
-# Include list of tables and list of figures
-lot: true
-lof: true
+# Include list of tables and list of figures (use thesis- prefix to avoid Quarto override)
+thesis-lot: true
+thesis-lof: true
 
 # Front matter content (using thesis- prefix to avoid Quarto auto-processing)
 thesis-abstract: |
