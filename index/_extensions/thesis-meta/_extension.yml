@@ -1,0 +1,6 @@
+title: Thesis Metadata
+author: Quartodown
+version: 1.0.0
+contributes:
+  filters:
+    - thesis-meta.lua

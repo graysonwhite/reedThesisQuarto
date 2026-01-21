@@ -1,0 +1,19 @@
+{
+  "hash": "0e2b14834b955e51f6f825e016ef712b",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# The First Appendix\n\nThis first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readability and/or setup.\n\n**In the main Rmd file**\n\n\n::: {.cell}\n\n:::\n\n\n**In Chapter @ref-labels:**\n\n\n::: {.cell}\n\n:::\n\n\n# The Second Appendix, for Fun\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

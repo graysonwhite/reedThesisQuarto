@@ -1,0 +1,77 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "My Final College Paper"
+  author: "Your R. Name"
+  date: "May 2026"
+  date-format: "MMMM YYYY"
+
+  chapters:
+    - index.qmd
+    - 01-chap1.qmd
+    - 02-chap2.qmd
+    - 03-chap3.qmd
+    - 04-conclusion.qmd
+    - 05-appendix.qmd
+    - 99-references.qmd
+
+# Thesis-specific metadata for Reed College format
+institution: "Reed College"
+division: "Mathematics and Natural Sciences"
+department: "Mathematics"
+advisor: "Advisor F. Name"
+# altadvisor: "Your Other Advisor"  # Uncomment if you have a second advisor
+degree: "Bachelor of Arts"
+
+# Include list of tables and list of figures
+lot: true
+lof: true
+
+# Front matter content (using thesis- prefix to avoid Quarto auto-processing)
+thesis-abstract: |
+  This is your abstract text. You can write it here directly.
+  It can span multiple paragraphs.
+
+thesis-acknowledgements: |
+  I want to thank a few people.
+
+thesis-dedication: |
+  You can have a dedication here if you wish.
+
+thesis-preface: |
+  This is an example of a thesis setup to use the Reed thesis document class
+  (for LaTeX) and Quarto.
+
+bibliography: bib/thesis.bib
+csl: csl/apa.csl
+# Include these references even if not explicitly cited (for demonstration)
+nocite: |
+  @angel2000, @angel2001, @angel2002a
+
+filters:
+  - thesis-meta
+
+format:
+  pdf:
+    documentclass: reedthesis
+    classoption:
+      - 12pt
+      - twoside
+    include-in-header:
+      - templates/preamble.tex
+    include-before-body:
+      - templates/before-body.tex
+    # TOC/LOT/LOF are placed manually by the Lua filter in the correct order
+    lot: false
+    lof: false
+    toc: false
+    toc-depth: 2
+    number-sections: true
+    keep-tex: true
+    title-page: false
+
+execute:
+  freeze: false
+  cache: false

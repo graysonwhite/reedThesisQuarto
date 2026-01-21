@@ -1,0 +1,14 @@
+# References {-}
+
+```{=latex}
+\markboth{References}{References}
+
+% Formatting for bibliography entries
+\noindent
+\setlength{\parindent}{-0.20in}
+\setlength{\leftskip}{0.20in}
+\setlength{\parskip}{8pt}
+```
+
+::: {#refs}
+:::

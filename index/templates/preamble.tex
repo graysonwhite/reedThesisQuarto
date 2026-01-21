@@ -1,0 +1,45 @@
+% Reed College Thesis Preamble for Quarto
+% This supplements reedthesis.cls - only adds packages/features not in the class
+
+% Additional packages (only those not loaded by Quarto or reedthesis.cls)
+\usepackage{graphicx,latexsym}
+\usepackage{amssymb,amsthm}
+\usepackage{setspace}
+\usepackage[hyphens]{url}
+\usepackage{float}
+\floatplacement{figure}{H}
+\usepackage{rotating}
+
+% Caption formatting
+\usepackage{caption}
+\captionsetup{width=5in}
+
+% Paragraph formatting to match Reed thesis style
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0.5in}
+
+% Remove hyperlink colors to match traditional Reed thesis style (no colored links)
+\AtBeginDocument{%
+  \hypersetup{hidelinks}%
+}
+
+% Ensure Table of Contents is named correctly (reedthesis.cls already does this,
+% but we include it here for clarity)
+\renewcommand{\contentsname}{Table of Contents}
+
+% Bibliography formatting - redefine CSLReferences for Reed thesis style
+% Must redefine entirely because Quarto's definition sets itemsep inside the list
+\renewenvironment{CSLReferences}[2]
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}%
+  \setlength{\leftmargin}{0pt}%
+  \setlength{\parsep}{0pt}%
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}%
+   \setlength{\itemindent}{-1\cslhangindent}%
+  \fi
+  % Reed thesis style: add spacing between bibliography entries
+  \setlength{\itemsep}{12pt plus 2pt minus 2pt}%
+  }}
+ {\end{list}}

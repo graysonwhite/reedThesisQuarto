@@ -1,0 +1,15 @@
+{
+  "hash": "804a48b8b0e85f8ff2cc5ba3261b2eb1",
+  "result": {
+    "engine": "knitr",
+    "markdown": "\n\n# (APPENDIX) Appendix {-} \n\n<!--\nIf you feel it necessary to include an appendix, it goes here.\n-->\n\n\n# The First Appendix\n\nThis first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readibility and/or setup.\n\n**In the main Rmd file**\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n**In Chapter \\@ref(ref-labels):**\n\n\n\n\n\n\n::: {.cell}\n\n:::\n\n\n\n\n\n\n# The Second Appendix, for Fun\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

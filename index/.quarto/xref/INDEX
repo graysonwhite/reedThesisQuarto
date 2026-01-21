@@ -1,0 +1,23 @@
+{
+  "index.qmd": {
+    "index.html": "416b17f5"
+  },
+  "01-chap1.qmd": {
+    "01-chap1.html": "e0a108fe"
+  },
+  "02-chap2.qmd": {
+    "02-chap2.html": "25f98a20"
+  },
+  "03-chap3.qmd": {
+    "03-chap3.html": "ccae77f0"
+  },
+  "04-conclusion.qmd": {
+    "04-conclusion.html": "7ceda22b"
+  },
+  "05-appendix.qmd": {
+    "05-appendix.html": "90c07292"
+  },
+  "99-references.qmd": {
+    "99-references.html": "3598066d"
+  }
+}
