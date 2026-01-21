@@ -9,7 +9,9 @@ If you'd prefer to not include a Dedication, for example, simply delete or
 comment out that section in _quarto.yml.
 -->
 
-```{r include_packages, include = FALSE}
+```{r}
+#| label: include_packages
+#| include: false
 # Load any R packages you need for your thesis
 # This Quarto template is based on the Reed College thesis format
 library(knitr)

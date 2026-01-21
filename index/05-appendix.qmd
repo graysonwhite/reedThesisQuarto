@@ -1,15 +1,27 @@
 # The First Appendix
 
-This first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readability and/or setup.
+This first appendix includes all of the R chunks of code that were hidden throughout the document (using the `#| include: false` chunk option) to help with readability and/or setup.
 
-**In the main Rmd file**
+**In the Introduction (index.qmd):**
 
-```{r ref.label='include_packages', results='hide', echo = TRUE, eval = FALSE}
+```{r}
+#| echo: true
+#| eval: false
+# Load any R packages you need for your thesis
+library(knitr)
+library(ggplot2)
 ```
 
-**In Chapter @ref-labels:**
+**In @ref-labels:**
 
-```{r ref.label='include_packages_2', results='hide', echo = TRUE, eval = FALSE}
+```{r}
+#| echo: true
+#| eval: false
+# Load required packages
+library(dplyr)
+library(ggplot2)
+library(knitr)
+flights <- read.csv("data/flights.csv")
 ```
 
 # The Second Appendix, for Fun

@@ -1,8 +1,8 @@
 {
-  "hash": "0e2b14834b955e51f6f825e016ef712b",
+  "hash": "8fa89fefa58b39b5921133620a2f3904",
   "result": {
     "engine": "knitr",
-    "markdown": "# The First Appendix\n\nThis first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readability and/or setup.\n\n**In the main Rmd file**\n\n\n::: {.cell}\n\n:::\n\n\n**In Chapter @ref-labels:**\n\n\n::: {.cell}\n\n:::\n\n\n# The Second Appendix, for Fun\n",
+    "markdown": "# The First Appendix\n\nThis first appendix includes all of the R chunks of code that were hidden throughout the document (using the `#| include: false` chunk option) to help with readability and/or setup.\n\n**In the Introduction (index.qmd):**\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Load any R packages you need for your thesis\nlibrary(knitr)\nlibrary(ggplot2)\n```\n:::\n\n\n**In @ref-labels:**\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Load required packages\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(knitr)\nflights <- read.csv(\"data/flights.csv\")\n```\n:::\n\n\n# The Second Appendix, for Fun\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

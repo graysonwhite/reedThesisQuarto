@@ -1,8 +1,8 @@
-# R Markdown Basics {#rmd-basics}
+# Quarto Basics {#rmd-basics}
 
-Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output. For more details on using _R Markdown_ see <http://rmarkdown.rstudio.com>.
+Here is a brief introduction into using _Quarto_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _Quarto_ provides the flexibility of _Markdown_ with the implementation of **R** (or Python) input and output. For more details on using _Quarto_ see <https://quarto.org>.
 
-Be careful with your spacing in _Markdown_ documents. While whitespace largely is ignored, it does at times give _Markdown_ signals as to how to proceed. As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph. In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
+Be careful with your spacing in _Markdown_ documents. While whitespace largely is ignored, it does at times give _Markdown_ signals as to how to proceed. As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph. In other words, there is no need to indent basic text in the qmd document (in fact, it might cause your text to do funny things if you do).
 
 ## Lists
 
@@ -41,7 +41,7 @@ This should be a new paragraph.
 
 ## R chunks
 
-When you click the **Knit** button above a document will be generated that includes both content as well as the output of any embedded **R** code chunks within the document. You can embed an **R** code chunk like this (`cars` is a built-in **R** dataset):
+When you click the **Render** button (or run `quarto render` from the terminal), a document will be generated that includes both content as well as the output of any embedded **R** code chunks within the document. You can embed an **R** code chunk like this (`cars` is a built-in **R** dataset):
 
 ```{r}
 summary(cars)
@@ -75,9 +75,9 @@ You can also embed plots. For example, here is a way to use the base **R** graph
 plot(pressure)
 ```
 
-Note that the `echo: false` parameter was added to the code chunk to prevent printing of the **R** code that generated the plot. There are plenty of other ways to add chunk options. More information is available at <http://yihui.name/knitr/options/>.
+Note that the `#| echo: false` parameter was added to the code chunk to prevent printing of the **R** code that generated the plot. There are plenty of other ways to add chunk options. More information is available at <https://quarto.org/docs/computations/execution-options.html>.
 
-Another useful chunk option is the setting of `cache: true` as you see here. If document rendering becomes time consuming due to long computations or plots that are expensive to generate you can use knitr caching to improve performance. Later in this file, you'll see a way to reference plots created in **R** or external figures.
+Another useful chunk option is the setting of `#| cache: true` as you see here. If document rendering becomes time consuming due to long computations or plots that are expensive to generate you can use caching to improve performance. Later in this file, you'll see a way to reference plots created in **R** or external figures.
 
 ## Loading and exploring data
 
@@ -110,7 +110,7 @@ We begin by checking to ensure that needed packages are installed and then we lo
 ```{r}
 #| message: false
 # List of packages required for this analysis
-pkg <- c("dplyr", "ggplot2", "knitr", "bookdown", "devtools")
+pkg <- c("dplyr", "ggplot2", "knitr")
 # Check if packages are not installed and assign the
 # names of the packages not installed to the variable new.pkg
 new.pkg <- pkg[!(pkg %in% installed.packages())]
@@ -138,13 +138,13 @@ max_delays <- flights2 %>%
   summarize(max_arr_delay = max(arr_delay, na.rm = TRUE))
 ```
 
-A useful function in the `knitr` package for making nice tables in _R Markdown_ is called `kable`. It is much easier to use than manually entering values into a table by copying and pasting values into Excel or LaTeX. This again goes to show how nice reproducible documents can be!
+A useful function in the `knitr` package for making nice tables in _Quarto_ is called `kable`. It is much easier to use than manually entering values into a table by copying and pasting values into Excel or LaTeX. This again goes to show how nice reproducible documents can be!
 
 ```{r}
-#| results: asis
+#| label: tbl-maxdelays
+#| tbl-cap: "Maximum Delays by Airline"
 kable(max_delays,
       col.names = c("Airline", "Max Arrival Delay"),
-      caption = "Maximum Delays by Airline",
       longtable = TRUE,
       booktabs = TRUE)
 ```
@@ -173,10 +173,10 @@ flights %>%
 
 ## Additional resources
 
+- _Quarto_ Documentation - <https://quarto.org/docs/guide/>
+
 - _Markdown_ Cheatsheet - <https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet>
 
-- _R Markdown_ Reference Guide - <https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf>
+- Introduction to `dplyr` - <https://dplyr.tidyverse.org/>
 
-- Introduction to `dplyr` - <https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html>
-
-- `ggplot2` Documentation - <http://docs.ggplot2.org/current/>
+- `ggplot2` Documentation - <https://ggplot2.tidyverse.org/>
