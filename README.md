@@ -16,4 +16,4 @@ This template is based off of [`ismayc/thesisdown`](https://github.com/ismayc/th
 
 ## Disclaimer
 
-This template was written as an experiment to see the capability of large language models, and hence things may (1) brake and (2) not be intuitive / look like they should work when they don't. However, the current iteration of this project appears to work. Please report any and all bugs found!  
+This template was written as an experiment to see the capability of large language models, and hence things may (1) break and (2) not be intuitive / look like they should work when they don't. However, the current iteration of this project appears to work. Please report any and all bugs found!  
