@@ -55,6 +55,7 @@ filters:
 
 format:
   pdf:
+    pdf-engine: lualatex
     documentclass: reedthesis
     classoption:
       - 12pt
