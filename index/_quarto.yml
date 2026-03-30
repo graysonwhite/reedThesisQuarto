@@ -19,7 +19,7 @@ book:
 
 # Thesis-specific metadata for Reed College format
 institution: "Reed College"
-division: "Mathematics and Natural Sciences"
+division: "Mathematical and Natural Sciences"
 department: "Mathematics"
 advisor: "Advisor F. Name"
 # altadvisor: "Your Other Advisor"  # Uncomment if you have a second advisor
@@ -43,6 +43,15 @@ thesis-dedication: |
 thesis-preface: |
   This is an example of a thesis setup to use the Reed thesis document class
   (for LaTeX) and Quarto.
+
+# Short captions for the List of Figures / List of Tables.
+# The easiest way is a || separator directly in fig-cap or tbl-cap:
+#   #| fig-cap: "Full caption text || Short LoF entry"
+# Alternatively, list them here by label if you prefer to keep captions clean:
+# fig-scaps:
+#   fig-march3: "Portland departures, March 3, 2014"
+# tbl-scaps:
+#   tbl-maxdelays: "Maximum delays by airline"
 
 bibliography: bib/thesis.bib
 csl: csl/apa.csl

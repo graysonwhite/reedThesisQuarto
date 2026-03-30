@@ -142,7 +142,7 @@ A useful function in the `knitr` package for making nice tables in _Quarto_ is c
 
 ```{r}
 #| label: tbl-maxdelays
-#| tbl-cap: "Maximum Delays by Airline"
+#| tbl-cap: "Maximum arrival delays (minutes) by airline for Portland departures in 2014 || Maximum delays by airline"
 kable(max_delays,
       col.names = c("Airline", "Max Arrival Delay"),
       longtable = TRUE,
@@ -164,12 +164,16 @@ flights %>%
 We see that the flight occurred on March 3rd and departed a little after 2 PM on its way to Dallas/Fort Worth. Lastly, we show how we can visualize the arrival delay of all departing flights from Portland on March 3rd against time of departure.
 
 ```{r}
+#| label: fig-march3
 #| fig-height: 3
 #| fig-width: 6
+#| fig-cap: "Arrival delay (minutes) versus departure time for all Portland flights on March 3, 2014. Points in the upper right represent late evening flights that accumulated significant delays throughout the day. || Portland departures, March 3, 2014"
 flights %>%
   filter(month == 3, day == 3) %>%
   ggplot(aes(x = dep_time, y = arr_delay)) + geom_point()
 ```
+
+Use `||` inside `fig-cap` to separate the full caption (shown under the figure) from the short entry shown in the List of Figures. The same works for `tbl-cap` and the List of Tables.
 
 ## Additional resources
 

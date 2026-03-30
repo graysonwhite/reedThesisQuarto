@@ -13,7 +13,3 @@ with `index` are your working directory. The resulting pdf will be found in `ind
 ## Acknowledgements
 
 This template is based off of [`ismayc/thesisdown`](https://github.com/ismayc/thesisdown) and the Reed College LaTeX thesis template. 
-
-## Disclaimer
-
-This template was written as an experiment to see the capability of large language models, and hence things may (1) break and (2) not be intuitive / look like they should work when they don't. However, the current iteration of this project appears to work. Please report any and all bugs found!  

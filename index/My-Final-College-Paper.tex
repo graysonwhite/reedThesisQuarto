@@ -188,7 +188,10 @@
 \usepackage{setspace}
 \usepackage[hyphens]{url}
 \usepackage{float}
-\floatplacement{figure}{H}
+% Use htbp (here, top, bottom, page) so LaTeX can choose the best placement.
+% Avoid H (forced here) which causes large white gaps when a float doesn't fit.
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
 \usepackage{rotating}
 
 % Caption formatting
@@ -203,10 +206,6 @@
 \AtBeginDocument{%
   \hypersetup{hidelinks}%
 }
-
-% Ensure Table of Contents is named correctly (reedthesis.cls already does this,
-% but we include it here for clarity)
-\renewcommand{\contentsname}{Table of Contents}
 
 % Bibliography formatting - redefine CSLReferences for Reed thesis style
 % Must redefine entirely because Quarto's definition sets itemsep inside the list
@@ -228,7 +227,7 @@
 \author{Your R. Name}
 \date{May 2026}
 \institution{Reed College}
-\division{Mathematics and Natural Sciences}
+\division{Mathematical and Natural Sciences}
 \department{Mathematics}
 \advisor{Advisor F. Name}
 \degree{Bachelor of Arts}
@@ -317,6 +316,7 @@ I want to thank a few people.
 This is an example of a thesis setup to use the Reed thesis document class (for LaTeX) and Quarto.
 \end{preface}
 
+\renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 
 \listoftables
@@ -630,22 +630,9 @@ then we load them into our current working environment:
 \CommentTok{\# Load packages}
 \FunctionTok{library}\NormalTok{(dplyr)}
 \FunctionTok{library}\NormalTok{(ggplot2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Warning: package 'ggplot2' was built under R version 4.5.2
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{library}\NormalTok{(knitr)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-Warning: package 'knitr' was built under R version 4.5.2
-\end{verbatim}
 
 The example we show here does the following:
 
@@ -686,7 +673,8 @@ can be!
 
 \begin{longtable}[]{@{}lr@{}}
 
-\caption{\label{tbl-maxdelays}Maximum Delays by Airline}
+\caption{\label{tbl-maxdelays}Maximum arrival delays (minutes) by
+airline for Portland departures in 2014}
 
 \tabularnewline
 
@@ -745,7 +733,26 @@ March 3rd against time of departure.
 \end{Highlighting}
 \end{Shaded}
 
-\pandocbounded{\includegraphics[keepaspectratio]{01-chap1_files/figure-pdf/unnamed-chunk-9-1.pdf}}
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{01-chap1_files/figure-pdf/fig-march3-1.pdf}}
+
+}
+
+\caption[Arrival delay vs.~departure time, March 3,
+2014]{\label{fig-march3}Arrival delay (minutes) versus departure time
+for all Portland flights on March 3, 2014. Points in the upper right
+represent late evening flights that accumulated significant delays
+throughout the day.}
+
+\end{figure}%
+
+The \texttt{fig-scap} option provides a short caption that appears in
+the List of Figures, while \texttt{fig-cap} provides the full caption
+displayed under the figure. Similarly, tables support \texttt{tbl-scap}
+for a short List of Tables entry.
 
 \section{Additional resources}\label{additional-resources}
 

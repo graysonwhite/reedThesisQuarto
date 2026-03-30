@@ -7,25 +7,26 @@
 \usepackage{setspace}
 \usepackage[hyphens]{url}
 \usepackage{float}
-\floatplacement{figure}{H}
+% Use htbp (here, top, bottom, page) so LaTeX can choose the best placement.
+% Avoid H (forced here) which causes large white gaps when a float doesn't fit.
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
 \usepackage{rotating}
 
 % Caption formatting
 \usepackage{caption}
 \captionsetup{width=5in}
 
-% Paragraph formatting to match Reed thesis style
-\setlength{\parskip}{0pt}
-\setlength{\parindent}{0.5in}
-
-% Remove hyperlink colors to match traditional Reed thesis style (no colored links)
+% Paragraph formatting to match Reed thesis style.
+% Moved to \AtBeginDocument because the parskip package (loaded by Quarto for
+% non-KOMA classes) registers its own \AtBeginDocument hook to re-apply parskip.
+% Our hook is registered later (here, in preamble.tex which is loaded after
+% parskip), so it runs after parskip's hook and our settings win.
 \AtBeginDocument{%
   \hypersetup{hidelinks}%
+  \setlength{\parskip}{0pt}%
+  \setlength{\parindent}{0.5in}%
 }
-
-% Ensure Table of Contents is named correctly (reedthesis.cls already does this,
-% but we include it here for clarity)
-\renewcommand{\contentsname}{Table of Contents}
 
 % Bibliography formatting - redefine CSLReferences for Reed thesis style
 % Must redefine entirely because Quarto's definition sets itemsep inside the list
